@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "IN+bg++YvfOrxFIbpESyQAQNgmrS85OtyF/iHMsz3m8sfxed3wEyMJC1sic1AG1+ax5SgEnOa5PobVxoRTvnww==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Orri\\source\\repos\\SiminnProject\\Finance.Services\\Finance.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Orri\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\bin\Debug\net6.0\Finance.Services.deps.json
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\bin\Debug\net6.0\Finance.Services.dll
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\bin\Debug\net6.0\Finance.Services.pdb
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.csproj.AssemblyReference.cache
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.AssemblyInfoInputs.cache
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.AssemblyInfo.cs
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.csproj.CoreCompileInputs.cache
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.dll
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\refint\Finance.Services.dll
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\Finance.Services.pdb
+C:\Users\Orri\source\repos\SiminnProject\Finance.Services\obj\Debug\net6.0\ref\Finance.Services.dll

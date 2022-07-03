@@ -1,0 +1,44 @@
+﻿@page "/dashboard"
+
+@using DevExpress.Blazor
+@using Finance.Services.Models
+@inherits Finance.Data.DashboardBase
+
+
+<div class="flex-container searchMargin">
+<div class="row mb-3">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <input class="nosubmit" type="search" placeholder="Search..." @bind-value="searchString" @bind-value:event="oninput" @onkeyup="@OnUserFinish" />
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    
+@if (results != null)
+{
+    <div class="row mb-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                @foreach (var result in results)
+                {
+                    <li class="ul list-group-item list-group-item-action" @onclick="@(() => { OnClick.InvokeAsync(result.Ticker); ClearResult(); })" aria-current="true">@result.Title - @result.Ticker</li>
+                }
+            </ul>
+        </div>
+      <div class="col-md-3"></div>
+        </div>
+}
+else if(results == null && hasSearched)
+    {
+        <div class="row mb-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                 <li class="ul list-group-item list-group-item-action" aria-current="true">@searchString not found...</li>
+            </ul>
+        </div>
+      <div class="col-md-3"></div>
+        </div>
+    }
+</div>

@@ -1,0 +1,56 @@
+﻿@page "/fetchdata"
+
+<PageTitle>Síminn Verkefni</PageTitle>
+
+@using DevExpress.Blazor
+@using Finance.Services.Models
+@inherits Finance.Data.FetchDataBase
+
+<Dashboard OnClick="ClickHandler"></Dashboard>
+
+@if (stock != null)
+{
+    <div class="col-md-12">
+        <DxChart T="Month" Data="@months" @ref="chart">
+            <DxChartLegend Visible="false" />
+            <DxChartArgumentAxis TickInterval="ChartAxisTickInterval.Days(5)"
+                                 Type="ChartAxisType.Discrete"
+                                 Visible="false"
+                                 DiscreteDivisionMode="ChartDiscreteAxisDivisionMode.CrossLabels" >
+                <DxChartAxisLabel Format="ChartElementFormat.MonthAndDay" />
+            </DxChartArgumentAxis>
+            <DxChartValueAxis Visible="false" />
+            <DxChartTitle Text="@stock.About.Name"></DxChartTitle>
+            <DxChartLineSeries Width="2"
+                               T="Month"
+                               TArgument="DateTime"
+                               TValue="double"
+                               ArgumentField="m => m.Date"
+                               ValueField="m => m.Price"
+                               Color="System.Drawing.Color.Blue">
+                <DxChartSeriesPoint Visible=false />
+            </DxChartLineSeries>
+            <DxChartTooltip Enabled="true">
+                @context.Point.Render((months) =>
+                    @<div style="margin: 0.75rem">
+                        <div>@($"{months.Argument: MMMM dd} ")</div>
+                        <div>@($"{months.Value: $ 0.0}")</div>
+                    </div>
+                )
+            </DxChartTooltip>
+
+        </DxChart>
+
+    </div>
+    
+    <div class="flex-container searchMargin">
+        <div class="row mb-3 rowBreather" >
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+                <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastSevenDays">Last 7 days</button>
+                <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastMonth">Last 30 days</button>
+          </div>
+        </div>
+    </div>
+}
+
