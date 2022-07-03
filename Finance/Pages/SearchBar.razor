@@ -5,18 +5,19 @@
 @inherits Finance.Data.SearchBarBase
 
 
-<div class="flex-container searchMargin">
-<div class="row mb-3">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-          <input class="nosubmit" type="search" placeholder="Search..." @bind-value="searchString" @bind-value:event="oninput" @onkeyup="@OnUserFinish" />
-      </div>
-      <div class="col-md-3"></div>
+
+<div class="row justify-content-md-center searchMargin">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <input class="nosubmit" type="search" placeholder="Search..." @bind-value="searchString" @bind-value:event="oninput" @onkeyup="@OnUserFinish" />
     </div>
+    <div class="col-md-3"></div>
+</div>
     
+<div class="searchList"> 
 @if (results != null)
 {
-    <div class="row mb-3">
+    <div class="row justify-content-md-center">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <ul class="list-group">
@@ -26,19 +27,19 @@
                 }
             </ul>
         </div>
-      <div class="col-md-3"></div>
-        </div>
+        <div class="col-md-3"></div>
+    </div>
 }
 else if(results == null && hasSearched)
-    {
-        <div class="row mb-3">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <ul class="list-group">
-                 <li class="ul list-group-item list-group-item-action" aria-current="true">@searchString not found...</li>
-            </ul>
-        </div>
-      <div class="col-md-3"></div>
-        </div>
-    }
+{
+    <div class="row mb-3">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <ul class="list-group">
+                <li class="ul list-group-item list-group-item-action" aria-current="true">@searchString not found...</li>
+        </ul>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+}
 </div>

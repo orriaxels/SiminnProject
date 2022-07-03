@@ -1,9 +1,26 @@
 ﻿.rowBreather {
 	margin-top: 40px;
-
 }
 
 .buttonStyle {
 	width: 140px;
-	margin-left: 20px;
+	/*margin-left: 20px;*/
+}
+
+.my-chart .dxc-axes-group {
+	display: none;
+}
+
+.stockName {
+	font-size:x-large;
+}
+
+.stockPrice {
+	font-size: xx-large;
+	font-weight: 500;
+}
+
+.stockInfo {
+	padding-left: 50px;
+	padding-bottom: 20px;
 }

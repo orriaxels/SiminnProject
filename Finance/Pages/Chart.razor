@@ -10,17 +10,27 @@
 
 @if (stock != null)
 {
+    <div class="col-sm-6 stockInfo" >
+        <div>
+            <div class="stockName">@stock.About.Name</div>
+            <span class="stockPrice">@stock.Price.Previous_Close</span>
+            <span class="stockName">$</span>
+        </div>
+    </div>
     <div class="col-md-12">
-        <DxChart T="Month" Data="@months" @ref="chart">
+        <DxChart CssClass="my-chart dxc-axes-group" T="Month" Data="@months" @ref="chart">
             <DxChartLegend Visible="false" />
             <DxChartArgumentAxis TickInterval="ChartAxisTickInterval.Days(5)"
                                  Type="ChartAxisType.Discrete"
-                                 Visible="false"
-                                 DiscreteDivisionMode="ChartDiscreteAxisDivisionMode.CrossLabels" >
+                                 Visible="true"
+                                 DiscreteDivisionMode="ChartDiscreteAxisDivisionMode.CrossLabels"
+                                 EndOnTick="true"
+                                 SideMarginsEnabled="false">
                 <DxChartAxisLabel Format="ChartElementFormat.MonthAndDay" />
-            </DxChartArgumentAxis>
-            <DxChartValueAxis Visible="false" />
-            <DxChartTitle Text="@stock.About.Name"></DxChartTitle>
+            </DxChartArgumentAxis>            
+            <DxChartValueAxis Visible="true" >
+                <DxChartAxisGridLines Visible="false" />
+            </DxChartValueAxis>
             <DxChartLineSeries Width="2"
                                T="Month"
                                TArgument="DateTime"
@@ -33,8 +43,8 @@
             <DxChartTooltip Enabled="true">
                 @context.Point.Render((months) =>
                     @<div style="margin: 0.75rem">
-                        <div>@($"{months.Argument: MMMM dd} ")</div>
-                        <div>@($"{months.Value: $ 0.0}")</div>
+                        <span class="font-weight-bold">@($"{months.Value: 0.0}$")</span>
+                        <span>@($"{months.Argument: MMMM dd} ")</span>
                     </div>
                 )
             </DxChartTooltip>
@@ -43,14 +53,16 @@
 
     </div>
     
-    <div class="flex-container searchMargin">
-        <div class="row mb-3 rowBreather" >
-          <div class="col-md-4"></div>
-          <div class="col-md-4">
-                <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastSevenDays">Last 7 days</button>
-                <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastMonth">Last 30 days</button>
+
+        <div class="row justify-content-md-center rowBreather" >
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+              <span>
+                  <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastSevenDays">Last 7 days</button>     
+              </span>  
+          
+          <span> <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastMonth">Last 30 days</button></span>
           </div>
         </div>
-    </div>
 }
 
