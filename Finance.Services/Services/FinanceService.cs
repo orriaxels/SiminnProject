@@ -81,15 +81,21 @@ namespace Finance.Services.Services
 					{ "X-RapidAPI-Host", _host },
 				},
 			};
+
 			using (var response = await client.SendAsync(request))
 			{
-				response.EnsureSuccessStatusCode();
-				var body = await response.Content.ReadAsStringAsync();
+				if (response.IsSuccessStatusCode)
+				{
+					response.EnsureSuccessStatusCode();
+					var body = await response.Content.ReadAsStringAsync();
 
 
-				stockResponse = JsonConvert.DeserializeObject<Stock>(body);
+					stockResponse = JsonConvert.DeserializeObject<Stock>(body);
 
-				return stockResponse;
+					return stockResponse;
+				}
+
+				return null;
 			}
 		}
 

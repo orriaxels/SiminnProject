@@ -9,7 +9,6 @@ namespace Finance.Data
 	{
 		[Inject]
 		public IFinanceService FinanceService { get; set; }
-
 		public Stock stock { get; set; }
 		public List<Month> months { get; set; }
 		public List<Month> tempMonths { get; set; }

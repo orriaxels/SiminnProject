@@ -10,11 +10,22 @@
 
 @if (stock != null)
 {
-    <div class="col-sm-6 stockInfo" >
-        <div>
-            <div class="stockName">@stock.About.Name</div>
-            <span class="stockPrice">@stock.Price.Previous_Close</span>
-            <span class="stockName">$</span>
+    <div class="row justify-content-between">
+        <div class="col-sm-6 stockInfo" >
+            <div>
+                <div class="stockName">@stock.About.Name</div>
+                <span class="stockPrice">@stock.Price.Previous_Close</span>
+                <span class="stockName">$</span>
+            </div>
+        </div>
+
+        <div class="col-sm-2"> 
+            <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-toolbar mb-3 filters" role="toolbar" aria-label="First group">
+                    <button type="button" class="btn btn-outline-primary" onclick="@GetLastSevenDays">7D</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="@GetLastMonth">1M</button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-md-12">
@@ -42,27 +53,13 @@
             </DxChartLineSeries>
             <DxChartTooltip Enabled="true">
                 @context.Point.Render((months) =>
-                    @<div style="margin: 0.75rem">
-                        <span class="font-weight-bold">@($"{months.Value: 0.0}$")</span>
-                        <span>@($"{months.Argument: MMMM dd} ")</span>
-                    </div>
+                        @<div style="margin: 0.75rem">
+                            <span class="font-weight-bold">@($"{months.Value: 0.0}$")</span>
+                            <span>@($"{months.Argument: MMMM dd} ")</span>
+                        </div>
                 )
             </DxChartTooltip>
-
         </DxChart>
-
     </div>
-    
-
-        <div class="row justify-content-md-center rowBreather" >
-          <div class="col-md-3"></div>
-          <div class="col-md-6">
-              <span>
-                  <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastSevenDays">Last 7 days</button>     
-              </span>  
-          
-          <span> <button type="button" class="btn btn-primary btn-lg buttonStyle" onclick="@GetLastMonth">Last 30 days</button></span>
-          </div>
-        </div>
 }
 
