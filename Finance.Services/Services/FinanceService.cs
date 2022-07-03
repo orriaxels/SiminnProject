@@ -16,9 +16,13 @@ namespace Finance.Services.Services
         public Task<List<SearchResults>> Search(string searchString);
 		public Task<Stock> GetStock(string stock);
 
+
 	}
     public class FinanceService : IFinanceService
     {
+		private string _key = "34d487137emsh873a55ac6506eebp13e8adjsne659eee0e7b2";
+		private string _host = "google-finance4.p.rapidapi.com";
+
 		public FinanceService() { }
 
 		public async Task<List<SearchResults>> Search(string searchString)
@@ -30,8 +34,8 @@ namespace Finance.Services.Services
 				RequestUri = new Uri($"https://google-finance4.p.rapidapi.com/search/?q={searchString}&hl=en&gl=US"),
 				Headers =
 				{
-					{ "X-RapidAPI-Key", "baa25c60bamshfa2254f1a38df5dp1132acjsn22ddae3f1c64" },
-					{ "X-RapidAPI-Host", "google-finance4.p.rapidapi.com" },
+					{ "X-RapidAPI-Key", _key },
+					{ "X-RapidAPI-Host", _host },
 				},
 			};
 			using (var response = await client.SendAsync(request))
@@ -73,8 +77,8 @@ namespace Finance.Services.Services
 				RequestUri = new Uri($"https://google-finance4.p.rapidapi.com/ticker/?t={stock}&hl=en&gl=US"),
 				Headers =
 				{
-					{ "X-RapidAPI-Key", "baa25c60bamshfa2254f1a38df5dp1132acjsn22ddae3f1c64" },
-					{ "X-RapidAPI-Host", "google-finance4.p.rapidapi.com" },
+					{ "X-RapidAPI-Key", _key },
+					{ "X-RapidAPI-Host", _host },
 				},
 			};
 			using (var response = await client.SendAsync(request))
