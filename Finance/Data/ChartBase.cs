@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Finance.Data
 {
-	public class FetchDataBase : ComponentBase
+	public class ChartBase : ComponentBase
 	{
 		[Inject]
 		public IFinanceService FinanceService { get; set; }

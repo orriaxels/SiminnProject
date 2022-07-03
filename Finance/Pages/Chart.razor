@@ -1,12 +1,12 @@
-﻿@page "/fetchdata"
+﻿@page "/Chart"
 
 <PageTitle>Síminn Verkefni</PageTitle>
 
 @using DevExpress.Blazor
 @using Finance.Services.Models
-@inherits Finance.Data.FetchDataBase
+@inherits Finance.Data.ChartBase
 
-<Dashboard OnClick="ClickHandler"></Dashboard>
+<SearchBar OnClick="ClickHandler"></SearchBar>
 
 @if (stock != null)
 {

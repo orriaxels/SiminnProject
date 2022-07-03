@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace Finance.Data
 {
-	public class DashboardBase : ComponentBase
+	public class SearchBarBase : ComponentBase
 	{
 		[Inject]
 		public IFinanceService FinanceService { get; set; }

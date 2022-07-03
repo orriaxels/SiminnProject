@@ -9,14 +9,12 @@ using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
-IFileProvider fileProvider = builder.Environment.ContentRootFileProvider;
 IConfiguration configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddDevExpressBlazor();
-builder.Services.AddSingleton<FinanceService>();
 builder.Services.AddScoped<IFinanceService, FinanceService>();
 var app = builder.Build();
 
