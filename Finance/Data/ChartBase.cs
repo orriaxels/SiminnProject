@@ -15,12 +15,6 @@ namespace Finance.Data
 		public DxChart<Month> chart;
 		public bool lastMonth = true;
 
-		protected override async Task OnInitializedAsync()
-		{
-			stock = await FinanceService.GetStock("ABNB:NASDAQ");
-			months = stock.Charts.Month;
-		}
-
 		private async Task<Stock> GetStock(string ticker)
 		{
 			stock = await FinanceService.GetStock(ticker);
